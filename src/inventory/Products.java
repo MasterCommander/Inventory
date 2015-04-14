@@ -22,10 +22,10 @@ public class Products {
         for (int i = 0; i < menu.length; i++){
         if (menuItem[i] == " "){
             menuItem[i] = name;
-                    System.out.println(menuItem[i]);
             break;
         }
     }
+        System.out.println(menuItem[i]);
         getName();
     }
 }
