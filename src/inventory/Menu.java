@@ -6,7 +6,6 @@ public class Menu {
     Scanner userInput = new Scanner(System.in);
     public String name;
     Products prod = new Products();
-            
     public void menu(){
 
         int value = 0;
@@ -16,10 +15,10 @@ public class Menu {
             value = userInput.nextInt();
             switch(value){
                 case 1:
-                    newProduct();
+                    prod.setName(name);
                     break;
                 case 2:
-                    
+                    prod.viewProduct();
                     break;
                 case 3:
                     break;
@@ -29,10 +28,8 @@ public class Menu {
         }while(value != 3);
     }
     
-    public void newProduct(){
-        System.out.println("Enter a product name: ");
-        name = userInput.next();
-        prod.setName(name);
-    }
+    
+    
+    
     
 }
