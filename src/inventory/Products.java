@@ -49,4 +49,15 @@ public class Products {
         
     }
     
+    public void changeName(int pro){
+        System.out.println("Enter new name");
+        menuItem[pro] = userInput.nextLine();
+    }
+    
+    public void changeIngredients(int pro){
+        for (int i = 0; i < ingredients; i++){
+            System.out.println("")
+        }
+    }
+    
 }
