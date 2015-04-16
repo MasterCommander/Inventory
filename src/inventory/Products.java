@@ -19,7 +19,7 @@ public class Products {
         return name;
 }
     
-    public void setName(String name){
+    public void setName(){
         System.out.println("Enter a product name: ");
         name = userInput.nextLine();
         for (int i = 0; i < menu.length; i++){
@@ -56,7 +56,7 @@ public class Products {
     
     public void changeIngredients(int pro){
         for (int i = 0; i < ingredients; i++){
-            System.out.println("")
+            System.out.println("");
         }
     }
     

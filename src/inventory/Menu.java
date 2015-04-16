@@ -15,13 +15,13 @@ public class Menu {
             value = userInput.nextInt();
             switch(value){
                 case 1:
-                    prod.setName(name);
+                    prod.setName();
                     break;
                 case 2:
                     prod.viewProduct();
                     break;
                 case 3:
-                    prod.changeProduct();
+                    changeProduct();
                     break;
                 case 4:
                     break;
@@ -32,11 +32,12 @@ public class Menu {
     }
     
     public String changeProduct(){
+        int value = 0;
         do{
-            System.out.println("Please enter item to change: ")
+            System.out.println("Please enter item to change: ");
             int pro = userInput.nextInt();
             System.out.println("Please choose what to change: \n1. Change name\n2. Change ingredients\n3. "
-            + "Change recipe\n4. Remove item\n5. Return to previous menu")
+            + "Change recipe\n4. Remove item\n5. Return to previous menu");
             value = userInput.nextInt();
             switch(value){
                 case 1:
@@ -51,7 +52,7 @@ public class Menu {
                 case 5:
                     break;
                 default:
-                    System.out.println("Please select a valid option")
+                    System.out.println("Please select a valid option");
                     changeProduct();
             }
         }while(value != 5);
