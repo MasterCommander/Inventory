@@ -8,6 +8,9 @@ public class Inventory {
         prod.initialize();
         Menu menu = new Menu();
         menu.menu();
+        
+        Screen screen = new Screen();
+        screen.setVisible(true);
     }
     
 }
