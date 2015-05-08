@@ -9,16 +9,45 @@ public class Screen extends javax.swing.JFrame {
         jTextField1.setVisible(false);
         
     }
-    public String[] items = new String[500];
+    public String[][] items = new String[500][20];
 public String name;
 public String[] list = new String[10];
 public String ingredients;
-public int ingred;
+public int ingred, amt;
 public void initialize(){
     for(int i = 0; i < items.length; i++){
-        items[i] = " ";
+        for(int j = 0; j < items.length; j++){
+            
+                items[i][j] = "";
+            
+        }
     }
 }
+
+public void getItemNumber(){
+    for(int i = 0; i < items.length; i++){
+            if(items[i][0] == null){
+                items[i][0] = jTextField1.getText();
+                ingred = i;
+                break;
+            }
+            else {
+            }
+        }
+}
+
+public void getIngredient(){
+    for(int i = 0; i < items.length; i++){
+            if(items[ingred][i] == null){
+                items[ingred][i] = jTextField2.getText();
+                amt = i;
+                break;
+            }
+            else {
+            }
+        }
+}
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -32,6 +61,8 @@ public void initialize(){
         jTextField2 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -44,7 +75,7 @@ public void initialize(){
 
         jDialog1.setBounds(0, 0, 450, 350);
 
-        jLabel1.setText("Enter name:");
+        jLabel1.setText("Enter item name:");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,8 +97,13 @@ public void initialize(){
             }
         });
 
-        jLabel2.setText("Enter number of ingredients:");
+        jLabel2.setText("Enter ingredient 1:");
 
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField2KeyPressed(evt);
@@ -81,7 +117,20 @@ public void initialize(){
             }
         });
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Enter ingredient quantity:");
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ounces", "lbs", "cups", "tbsp", "tsp", "custom" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -96,21 +145,22 @@ public void initialize(){
                             .addGroup(jDialog1Layout.createSequentialGroup()
                                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel3))
                                 .addGap(18, 18, 18)
                                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField1)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)))))
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                                    .addGroup(jDialog1Layout.createSequentialGroup()
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                         .addComponent(jButton2)))
                 .addGap(87, 87, 87))
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,8 +174,12 @@ public void initialize(){
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -249,15 +303,7 @@ public void initialize(){
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        for(int i = 0; i < items.length; i++){
-            if(items[i] == null){
-                items[i] = jTextField1.getText();
-                System.out.println(items[i]);
-                break;
-            }
-            else {
-            }
-        }
+        getItemNumber();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -265,18 +311,25 @@ public void initialize(){
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
-        try{
-            ingredients = jTextField2.getText();
-        ingred = Integer.parseInt(ingredients);
-        System.out.println(ingred);
-        }catch(Exception ex){
-            
-        }
+        
     }//GEN-LAST:event_jTextField2KeyPressed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        String name = jComboBox1.getSelectedItem().toString();
+        System.out.println(name);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,6 +372,7 @@ public void initialize(){
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -332,5 +386,6 @@ public void initialize(){
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
