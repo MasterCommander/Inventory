@@ -437,7 +437,9 @@ public void getIngredient(){
         for(int i = 0; i < items.length; i++){
             if(items[i] == jTextField5.getText());
             jTextPane2.setText(jTextField5.getText());
-            jTextPane1.setText(list[amt][0] + " of " + items[amt]);
+            for(int j = 0; amt - j <= 0; j++){
+                    jTextPane1.setText(list[amt][0] + " of " + items[amt - j]);
+            }
         }
         
     }//GEN-LAST:event_jButton3ActionPerformed
