@@ -422,11 +422,14 @@ public void getIngredient(){
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         getIngredient();
-        String name = jComboBox1.getSelectedItem().toString();
-        String qty = jTextField3.getText();
-        items[amt] = jTextField2.getText();
-        list[amt][0] = qty + " " + name;
-        list[amt][1] = jTextField4.getText() + " " + jComboBox2.getSelectedItem().toString();
+        for(int i = 0; i < items.length; i++){
+            if()
+            String name = jComboBox1.getSelectedItem().toString();
+            String qty = jTextField3.getText();
+            items[amt] = jTextField2.getText();
+            list[amt][0] = qty + " " + name;
+            list[amt][1] = jTextField4.getText() + " " + jComboBox2.getSelectedItem().toString();
+        }
         System.out.println();
         System.out.println(items[amt] + "\n" + list[amt][0] + "\n" + list[amt][1]);
         jLabel5.setText("Ingredient added");
@@ -435,13 +438,15 @@ public void getIngredient(){
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         getIngredient();
         for(int i = 0; i < items.length; i++){
-            if(items[i] == jTextField5.getText());
+            if(items[i] == jTextField5.getText());{
             jTextPane2.setText(jTextField5.getText());
-            for(int j = 0; amt - j <= 0; j++){
-                    jTextPane1.setText(list[amt][0] + " of " + items[amt - j]);
+            for(int j = 0; j <= amt; j++){
+                jTextPane1.setText(list[amt-j][0] + " of " + items[amt-j]);
             }
         }
-        
+        }
+        System.out.println(items[0] + "\n" + list[0][0] + "\n" + list[0][1] + "\n" 
+                + items[1] + "\n" + list[1][0] + "\n" + list[1][1]);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
